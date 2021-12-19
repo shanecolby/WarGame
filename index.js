@@ -17,11 +17,12 @@ document.getElementById("drawCard-btn").addEventListener("click", function () {
     .then(res => res.json())
     .then(data => {
       document.getElementById("cardContainer").children[0].innerHTML = `
-        <img src=${data.cards[0].image} />
+        <img src=${data.cards[0].image} class="card"/>
       `
       document.getElementById("cardContainer").children[1].innerHTML = `
-        <img src=${data.cards[1].image} />
+        <img src=${data.cards[1].image} class="card"/>
       `
       console.log(data)
     })
 })
+
