@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: green;
+  font-family: "Exo 2", sans-serif;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+button {
+  background-color: #FFF100;
+  cursor: pointer;
+  border: none;
+}
+
+button#newDeck-btn {
+  align-self: flex-start;
+  padding: 5px;
+}
+
+button#drawCard-btn {
+  font-size: 1.2em;
+  padding: 5px;
+  align-self: stretch;
+}
+
