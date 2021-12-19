@@ -30,9 +30,27 @@ drawCardBtn.addEventListener("click", function () {
       remainingText.textContent = `Remaining: ${data.remaining}`
       console.log(data)
 
+      const winnerText = determineWinner(data.cards[0], data.cards[1])
+      header.textContent = winnerText
+
       if (data.remaining === 0) {
         drawCardBtn.disabled = true
       }
     })
 })
+
+function determineWinner(card1, card2) {
+  const cardIndexValues = ["2", "3", "4", "5", "6", "7", "8", "9",
+    "10", "JACK", "QUEEN", "KING", "ACE"]
+  let cardOneValue = cardIndexValues.indexOf(card1.value)
+  let cardTwoValue = cardIndexValues.indexOf(card2.value)
+  if (cardOneValue > cardTwoValue) {
+    return "computer wins"
+  } else if (cardOneValue < cardTwoValue) {
+    return "you win"
+  } else {
+    return "tie game"
+  }
+
+}
 
