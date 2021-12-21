@@ -6,6 +6,7 @@ const drawCardBtn = document.getElementById("drawCard-btn")
 const newDeckBtn = document.getElementById("newDeck-btn")
 const compScoreEl = document.getElementById("computerScore")
 const myScoreEl = document.getElementById("myScore")
+const resetBtn = document.getElementById("reset")
 
 newDeckBtn.addEventListener("click", function () {
   fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
@@ -70,3 +71,23 @@ function determineWinner(card1, card2) {
 
 }
 
+
+
+resetBtn.addEventListener("click", function () {
+  console.log("click")
+  compScoreEl = ""
+})
+
+Build off below
+// function initNewGame(){
+//   // setup game vars and cards
+// }
+
+// function endGame(){
+//   // clean game vars and remove cards
+// }
+
+// function newOrReset(){
+//   endGame();
+//   initNewGame();
+// }   
