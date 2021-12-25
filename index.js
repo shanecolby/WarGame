@@ -1,6 +1,7 @@
 let deckId
 let computerScore = 0
 let myScore = 0
+
 const remainingText = document.getElementById("remaining")
 const drawCardBtn = document.getElementById("drawCard-btn")
 const newDeckBtn = document.getElementById("newDeck-btn")
@@ -8,6 +9,7 @@ const compScoreEl = document.getElementById("computerScore")
 const myScoreEl = document.getElementById("myScore")
 const resetBtn = document.getElementById("reset")
 const cardContainer = document.getElementById("cardContainer")
+const cardSlot = document.getElementById("card-slot")
 
 
 
@@ -20,13 +22,11 @@ newDeckBtn.addEventListener("click", function () {
       console.log(deckId)
       remainingText.textContent = `Remaining: ${data.remaining}`
       drawCardBtn.disabled = false
-
-
-
     })
-  // startGame()
+
 })
 startGame()
+
 
 function startGame() {
   drawCardBtn.addEventListener("click", function () {
@@ -57,70 +57,44 @@ function startGame() {
           } else {
             header.textContent = "tie game"
           }
-          endGame();
         }
       })
   })
+}
 
-  function determineWinner(card1, card2) {
-    const cardIndexValues = ["2", "3", "4", "5", "6", "7", "8", "9",
-      "10", "JACK", "QUEEN", "KING", "ACE"]
-    let cardOneValue = cardIndexValues.indexOf(card1.value)
-    let cardTwoValue = cardIndexValues.indexOf(card2.value)
-    if (cardOneValue > cardTwoValue) {
-      computerScore++;
-      return "The computer won this hand"
-    } else if (cardOneValue < cardTwoValue) {
-      myScore++;
-      return "You won this hand!"
-    } else {
-      return "tie game"
-    }
-
-
+function determineWinner(card1, card2) {
+  const cardIndexValues = ["2", "3", "4", "5", "6", "7", "8", "9",
+    "10", "JACK", "QUEEN", "KING", "ACE"]
+  let cardOneValue = cardIndexValues.indexOf(card1.value)
+  let cardTwoValue = cardIndexValues.indexOf(card2.value)
+  if (cardOneValue > cardTwoValue) {
+    computerScore++;
+    return "The computer won this hand"
+  } else if (cardOneValue < cardTwoValue) {
+    myScore++;
+    return "You won this hand!"
+  } else {
+    return "tie game"
   }
-
-
-
-
-
-
 }
 
-// resetBtn.addEventListener("click", function () {
-//   console.log("click")
-//   compScoreEl.textContent = "hello"
-// })
 
-function endGame() {
-  resetBtn.addEventListener("click", function () {
-    console.log("click")
-    // compScoreEl.textContent = `Computer Score: `
-    // myScoreEl.textContent = `My Score: `
-    header.textContent = "WAR!"
-    cardContainer.innerHTML = ""
-    resetGame()
-  })
 
-}
+
+resetBtn.addEventListener("click", function () {
+  resetGame()
+})
+
 
 function resetGame() {
-  endGame();
+  myScore = 0
+  computerScore = 0
+  compScoreEl.textContent = `Computer Score: `
+  myScoreEl.textContent = `My Score: `
+  header.textContent = "WAR!"
+  cardContainer.children[0].innerHTML = ""
+  cardContainer.children[1].innerHTML = ""
 }
 
 
 
-
-// Build off below
-// function initNewGame(){
-//   // setup game vars and cards
-// }
-
-// function endGame(){
-//   // clean game vars and remove cards
-// }
-
-// function newOrReset(){
-//   endGame();
-//   initNewGame();
-// }   
