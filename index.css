@@ -30,6 +30,9 @@ button#drawCard-btn {
   padding: 5px;
   align-self: stretch;
 }
+#drawCard-btn:disabled {
+  cursor: not-allowed;
+}
 
 div#card-slot {
   border: 1px solid black;
